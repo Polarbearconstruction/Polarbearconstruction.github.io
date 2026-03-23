@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Polar Bear Construction</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* NAVBAR */
+nav {
+  background-color: #111;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  position: sticky;
+  top: 0;
+}
+
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* HERO */
+header {
+  background: linear-gradient(to right, red, white, blue);
+  color: black;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+header img {
+  width: 200px;
+  border-radius: 10px;
+}
+
+section {
+  padding: 40px;
+}
+
+/* SERVICES */
+.services {
+  background-color: white;
+}
+
+.services h3 {
+  border-bottom: 2px solid red;
+}
+
+/* CONTACT */
+.contact {
+  background-color: #222;
+  color: white;
+}
+
+/* FORM */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+input, textarea {
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+}
+
+button {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div><b>Polar Bear Construction</b></div>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HOME -->
+<header id="home">
+  <img src="logo.jpg" alt="Logo">
+  <h1>POLAR BEAR CONSTRUCTION</h1>
+  <p>
+  Polar Bear Construction specializes in foundation repair, waterproofing, and all exterior and interior work for both residential and commercial structures. 
+  We also provide repair and replacement services for sidewalks (walkways) and driveways. 
+  We ensure quality, reliability, and long-term durability. Contact us today for a free consultation and advice, 
+  our estimators will assist you with guidance and recommendations for the best solution to meet your needs.
+  </p>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About Us</h2>
+  <p>
+  We are a professional construction company based in Edmonton, providing reliable and durable solutions 
+  for residential and commercial clients. Our team focuses on high-quality workmanship and customer satisfaction.
+  </p>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services">
+  <h2>Services</h2>
+
+  <h3>Settlement Repair</h3>
+  <ul>
+    <li>Push Pier</li>
+    <li>Helical Pier</li>
+    <li>Helical Pier - Hand Held</li>
+    <li>Crawlspace Pier</li>
+    <li>Concrete Remove & Replace</li>
+    <li>Slab Pier</li>
+  </ul>
+
+  <h3>Wall Repair</h3>
+  <ul>
+    <li>Carbon Fiber Strip</li>
+    <li>Carbon Fibre Stitching</li>
+    <li>IntelliBraces</li>
+  </ul>
+
+  <h3>Waterproofing</h3>
+  <ul>
+    <li>BasementGutter</li>
+    <li>WallSeal</li>
+    <li>Lateral Line</li>
+    <li>Basement Air System</li>
+  </ul>
+
+  <h3>Concrete Repair</h3>
+  <ul>
+    <li>Caulk Control Joint</li>
+    <li>Crack Repair</li>
+  </ul>
+
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <h2>Contact Us</h2>
+
+  <p>Email: polarbearconstruction2026@gmail.com</p>
+  <p>Phone:</p>
+  <p>Volodymyr: 639-318-9674</p>
+  <p>Anton: 438-866-1416</p>
+  <p>Address: 12965 115 St NW Edmonton T5E5G2</p>
+
+  <h3>Request a Quote</h3>
+
+  <form action="https://formsubmit.co/polarbearconstruction2026@gmail.com" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <input type="text" name="phone" placeholder="Phone Number">
+    <textarea name="message" placeholder="What service do you need?" required></textarea>
+    <button type="submit">Send</button>
+  </form>
+
+</section>
+
+</body>
+</html>
