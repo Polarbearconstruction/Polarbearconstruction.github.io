@@ -25,35 +25,22 @@ nav a {color:white;margin-left:25px;text-decoration:none;font-weight:bold}
 .hero {
   background:linear-gradient(to right,#c40000,#ffffff,#0033cc);
   text-align:center;
-  padding:120px 20px;
+  padding:140px 20px;
 }
-.hero img {width:180px;}
 .hero h1 {font-size:55px;}
-.hero p {font-size:20px;max-width:900px;margin:auto;}
-
+.hero p {font-size:22px;}
 .btn {
-  margin-top:30px;
-  display:inline-block;
+  margin-top:25px;
   padding:15px 30px;
   background:#c40000;
   color:white;
   text-decoration:none;
-  font-weight:bold;
+  display:inline-block;
 }
 
-/* IMAGE STRIP */
-.images {
-  display:flex;
-}
-.images img {
-  width:33.33%;
-  height:250px;
-  object-fit:cover;
-}
-
-/* SECTIONS */
-section {padding:80px 20px;}
-.container {max-width:1200px;margin:auto;}
+/* ANIMATION */
+.fade {opacity:0;transform:translateY(50px);transition:1s;}
+.show {opacity:1;transform:translateY(0);}
 
 /* SERVICES */
 .services {
@@ -61,34 +48,30 @@ section {padding:80px 20px;}
   grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
   gap:25px;
 }
-
 .service-box {
   background:white;
   padding:20px;
-  border-top:5px solid #c40000;
+  border-top:5px solid red;
   transition:0.3s;
 }
 .service-box:hover {
-  transform:translateY(-10px);
-  box-shadow:0 10px 20px rgba(0,0,0,0.2);
+  transform:scale(1.05);
 }
 
-/* ANIMATION */
-.fade {
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s;
-}
-.fade.show {
-  opacity:1;
-  transform:translateY(0);
+/* SLIDER */
+.slider {
+  background:#111;
+  color:white;
+  text-align:center;
+  padding:40px;
+  font-size:22px;
 }
 
 /* CONTACT */
 .contact {background:#111;color:white;}
 form {display:flex;flex-direction:column;max-width:500px;}
 input,textarea {margin:10px 0;padding:12px;border:none;}
-button {background:#c40000;color:white;padding:12px;border:none;cursor:pointer}
+button {background:red;color:white;padding:12px;border:none;}
 
 /* FOOTER */
 footer {background:#000;color:white;text-align:center;padding:20px;}
@@ -108,19 +91,14 @@ footer {background:#000;color:white;text-align:center;padding:20px;}
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <img src="logo.jpg">
-  <h1>POLAR BEAR CONSTRUCTION</h1>
-  <p>
-  Professional foundation repair, waterproofing, and structural solutions for residential and commercial buildings.
-  </p>
+  <h1 id="changing-text">Foundation Repair Experts</h1>
+  <p>Reliable. Professional. Built to last.</p>
   <a href="#contact" class="btn">GET FREE CONSULTATION</a>
 </section>
 
-<!-- IMAGE STRIP -->
-<div class="images">
-  <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
-  <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789">
-  <img src="https://images.unsplash.com/photo-1590479773265-7464e5d48118">
+<!-- SLIDING TEXT BAR -->
+<div class="slider" id="slider-text">
+  Waterproofing • Structural Repair • Concrete Solutions
 </div>
 
 <!-- SERVICES -->
@@ -130,29 +108,17 @@ footer {background:#000;color:white;text-align:center;padding:20px;}
 
     <div class="services">
 
-      <div class="service-box"><h3>Settlement Repair</h3><p>Helical piers, push piers, slab piers, crawlspace piers, and concrete replacement solutions to stabilize foundations.</p></div>
+      <div class="service-box"><h3>Settlement Repair</h3><p>Helical piers, push piers, slab piers and more.</p></div>
 
-      <div class="service-box"><h3>Engineering</h3><p>Professional assessments and full utility protection for safe structural work.</p></div>
+      <div class="service-box"><h3>Wall Repair</h3><p>Carbon fiber and support systems.</p></div>
 
-      <div class="service-box"><h3>Wall Repair</h3><p>Carbon fiber strips, stitching systems, and support braces for cracked or bowing walls.</p></div>
+      <div class="service-box"><h3>Waterproofing</h3><p>Drainage and sealing solutions.</p></div>
 
-      <div class="service-box"><h3>Waterproofing</h3><p>Basement gutter systems, sealing, drainage lines, and air systems for moisture protection.</p></div>
+      <div class="service-box"><h3>Sump Systems</h3><p>Full sump pump installations and upgrades.</p></div>
 
-      <div class="service-box"><h3>Tiger IntelliJacks</h3><p>Heavy-duty adjustable steel support systems for sagging floors and structural stabilization.</p></div>
+      <div class="service-box"><h3>Concrete Repair</h3><p>Crack and joint repair solutions.</p></div>
 
-      <div class="service-box"><h3>Wall Excavation</h3><p>Hand and machine excavation for shallow to deep foundation access.</p></div>
-
-      <div class="service-box"><h3>Concrete Repair</h3><p>Joint caulking and crack repair for long-lasting concrete durability.</p></div>
-
-      <div class="service-box"><h3>Sump Systems</h3><p>Complete sump pump systems, backups, discharge lines, and upgrades.</p></div>
-
-      <div class="service-box"><h3>Crawlspace Repair</h3><p>Encapsulation, drainage, insulation, and sealing systems for crawlspaces.</p></div>
-
-      <div class="service-box"><h3>Exterior Waterproofing</h3><p>Drain tile systems, membranes, and downspout extensions.</p></div>
-
-      <div class="service-box"><h3>Interior Work</h3><p>Drywall removal, insulation, wood framing, and renovations.</p></div>
-
-      <div class="service-box"><h3>Additional Services</h3><p>Mobilization, site work, service plans, plumbing, electrical, and finishing.</p></div>
+      <div class="service-box"><h3>Crawlspace Repair</h3><p>Encapsulation and moisture protection.</p></div>
 
     </div>
   </div>
@@ -166,15 +132,12 @@ footer {background:#000;color:white;text-align:center;padding:20px;}
     <p>Email: polarbearconstruction2026@gmail.com</p>
     <p>Volodymyr: 639-318-9674</p>
     <p>Anton: 438-866-1416</p>
-    <p>Address: 12965 115 St NW Edmonton</p>
-
-    <h3>Request a Quote</h3>
 
     <form action="https://formsubmit.co/polarbearconstruction2026@gmail.com" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Describe your project..." required></textarea>
-      <button type="submit">Send Request</button>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Describe your project"></textarea>
+      <button>Send</button>
     </form>
   </div>
 </section>
@@ -184,23 +147,36 @@ footer {background:#000;color:white;text-align:center;padding:20px;}
 </footer>
 
 <script>
+/* SCROLL ANIMATION */
 const faders = document.querySelectorAll('.fade');
 window.addEventListener('scroll', () => {
   faders.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if(top < window.innerHeight - 100){
+    if(el.getBoundingClientRect().top < window.innerHeight - 100){
       el.classList.add('show');
     }
   });
 });
+
+/* CHANGING HERO TEXT */
+const texts = [
+  "Foundation Repair Experts",
+  "Waterproofing Specialists",
+  "Concrete & Structural Solutions"
+];
+let index = 0;
+
+setInterval(() => {
+  index = (index + 1) % texts.length;
+  document.getElementById("changing-text").innerText = texts[index];
+}, 3000);
 </script>
 
 </body>
 </html>
-<section id="gallery">
+<section id="gallery" class="fade">
   <div class="container">
     <h2>Our Work</h2>
-    <p>Real results from our completed projects.</p>
+    <p>See real results from our completed projects.</p>
 
     <div class="gallery">
       <img src="job1.jpg">
@@ -236,8 +212,6 @@ window.addEventListener('scroll', () => {
       <img src="job31.jpg">
       <img src="job32.jpg">
       <img src="job33.jpg">
-      <img src="job34.jpg">
-      <img src="job35.jpg">
     </div>
   </div>
 </section>
@@ -254,13 +228,13 @@ window.addEventListener('scroll', () => {
   width:100%;
   height:250px;
   object-fit:cover;
-  border-radius:5px;
+  border-radius:8px;
   transition:0.3s;
   cursor:pointer;
 }
 
 .gallery img:hover {
-  transform:scale(1.05);
+  transform:scale(1.08);
 }
 
 /* LIGHTBOX */
@@ -286,11 +260,11 @@ window.addEventListener('scroll', () => {
 </div>
 
 <script>
-const images = document.querySelectorAll('.gallery img');
+const galleryImages = document.querySelectorAll('.gallery img');
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = lightbox.querySelector('img');
 
-images.forEach(img => {
+galleryImages.forEach(img => {
   img.addEventListener('click', () => {
     lightbox.style.display = 'flex';
     lightboxImg.src = img.src;
