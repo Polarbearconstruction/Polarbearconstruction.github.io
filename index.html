@@ -8,104 +8,90 @@
 <link rel="icon" href="logo.jpg">
 
 <style>
-body {margin:0;font-family:Arial;line-height:1.6;background:#f5f5f5;}
+body {margin:0;font-family:Arial;background:#f5f5f5;scroll-behavior:smooth}
 
 /* NAV */
 nav {
-  background:#0d0d0d;
+  background:#111;
   color:white;
   display:flex;
   justify-content:space-between;
-  padding:20px 60px;
-  position:sticky;top:0;
-  z-index:1000;
+  padding:20px 50px;
+  position:sticky;top:0;z-index:1000;
 }
-nav a {color:white;margin-left:25px;text-decoration:none;font-weight:bold;font-size:16px;}
+nav a {color:white;margin-left:25px;text-decoration:none;font-weight:bold}
 
 /* HERO */
 .hero {
-  background:linear-gradient(to right, #c40000, #ffffff, #0033cc);
+  background:linear-gradient(to right,#c40000,#ffffff,#0033cc);
   text-align:center;
   padding:120px 20px;
 }
-.hero img {width:200px;}
-.hero h1 {font-size:50px;margin:20px 0;}
+.hero img {width:180px;}
+.hero h1 {font-size:55px;}
 .hero p {font-size:20px;max-width:900px;margin:auto;}
+
 .btn {
-  display:inline-block;
   margin-top:30px;
-  padding:15px 35px;
+  display:inline-block;
+  padding:15px 30px;
   background:#c40000;
   color:white;
-  font-weight:bold;
   text-decoration:none;
-  font-size:18px;
+  font-weight:bold;
+}
+
+/* IMAGE STRIP */
+.images {
+  display:flex;
+}
+.images img {
+  width:33.33%;
+  height:250px;
+  object-fit:cover;
 }
 
 /* SECTIONS */
 section {padding:80px 20px;}
 .container {max-width:1200px;margin:auto;}
 
-/* FEATURE STRIP */
-.features {
-  display:flex;
-  justify-content:space-between;
-  text-align:center;
-  margin-top:-40px;
-}
-.feature {
-  background:white;
-  padding:25px;
-  width:30%;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
 /* SERVICES */
 .services {
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:30px;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:25px;
 }
+
 .service-box {
   background:white;
-  padding:25px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  padding:20px;
   border-top:5px solid #c40000;
+  transition:0.3s;
 }
-.service-box h3 {margin-top:0;font-size:22px;}
+.service-box:hover {
+  transform:translateY(-10px);
+  box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
 
-/* CTA */
-.cta {
-  background:#c40000;
-  color:white;
-  text-align:center;
-  padding:60px 20px;
+/* ANIMATION */
+.fade {
+  opacity:0;
+  transform:translateY(40px);
+  transition:1s;
 }
-.cta h2 {font-size:30px;}
+.fade.show {
+  opacity:1;
+  transform:translateY(0);
+}
 
 /* CONTACT */
-.contact {
-  background:#111;
-  color:white;
-}
+.contact {background:#111;color:white;}
 form {display:flex;flex-direction:column;max-width:500px;}
-input,textarea {margin:10px 0;padding:14px;border:none;}
-button {
-  background:#c40000;
-  color:white;
-  padding:14px;
-  border:none;
-  font-size:16px;
-  cursor:pointer;
-}
+input,textarea {margin:10px 0;padding:12px;border:none;}
+button {background:#c40000;color:white;padding:12px;border:none;cursor:pointer}
 
 /* FOOTER */
-footer {
-  background:#000;
-  color:white;
-  text-align:center;
-  padding:20px;
-}
+footer {background:#000;color:white;text-align:center;padding:20px;}
 </style>
 </head>
 
@@ -125,86 +111,55 @@ footer {
   <img src="logo.jpg">
   <h1>POLAR BEAR CONSTRUCTION</h1>
   <p>
-  Specializing in foundation repair, waterproofing, and structural solutions for residential and commercial buildings. We deliver durable, long-lasting results you can trust.
+  Professional foundation repair, waterproofing, and structural solutions for residential and commercial buildings.
   </p>
   <a href="#contact" class="btn">GET FREE CONSULTATION</a>
 </section>
 
-<!-- FEATURES -->
-<div class="container features">
-  <div class="feature">
-    <h3>Reliable Work</h3>
-    <p>Professional service with proven long-term results.</p>
-  </div>
-  <div class="feature">
-    <h3>Experienced Team</h3>
-    <p>Skilled specialists in foundation and structural repair.</p>
-  </div>
-  <div class="feature">
-    <h3>Free Estimates</h3>
-    <p>We guide you with the best solution for your needs.</p>
-  </div>
+<!-- IMAGE STRIP -->
+<div class="images">
+  <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e">
+  <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789">
+  <img src="https://images.unsplash.com/photo-1590479773265-7464e5d48118">
 </div>
 
 <!-- SERVICES -->
-<section id="services">
+<section id="services" class="fade">
   <div class="container">
     <h2>Our Services</h2>
 
     <div class="services">
 
-      <div class="service-box">
-        <h3>Settlement Repair</h3>
-        <p>Push piers, helical piers, slab piers, and crawlspace supports designed to stabilize and lift foundations permanently.</p>
-      </div>
+      <div class="service-box"><h3>Settlement Repair</h3><p>Helical piers, push piers, slab piers, crawlspace piers, and concrete replacement solutions to stabilize foundations.</p></div>
 
-      <div class="service-box">
-        <h3>Wall Repair</h3>
-        <p>Carbon fiber systems, wall stitching, and IntelliBrace supports to restore structural integrity.</p>
-      </div>
+      <div class="service-box"><h3>Engineering</h3><p>Professional assessments and full utility protection for safe structural work.</p></div>
 
-      <div class="service-box">
-        <h3>Waterproofing</h3>
-        <p>Drainage systems, wall sealing, sump installations, and moisture control solutions.</p>
-      </div>
+      <div class="service-box"><h3>Wall Repair</h3><p>Carbon fiber strips, stitching systems, and support braces for cracked or bowing walls.</p></div>
 
-      <div class="service-box">
-        <h3>Excavation</h3>
-        <p>From hand digging to deep machine excavation for all foundation work.</p>
-      </div>
+      <div class="service-box"><h3>Waterproofing</h3><p>Basement gutter systems, sealing, drainage lines, and air systems for moisture protection.</p></div>
 
-      <div class="service-box">
-        <h3>IntelliJack Systems</h3>
-        <p>Adjustable steel supports to fix sagging floors and beams.</p>
-      </div>
+      <div class="service-box"><h3>Tiger IntelliJacks</h3><p>Heavy-duty adjustable steel support systems for sagging floors and structural stabilization.</p></div>
 
-      <div class="service-box">
-        <h3>Interior Work</h3>
-        <p>Joist reinforcement, drywall removal, insulation removal, and structural upgrades.</p>
-      </div>
+      <div class="service-box"><h3>Wall Excavation</h3><p>Hand and machine excavation for shallow to deep foundation access.</p></div>
 
-      <div class="service-box">
-        <h3>Concrete Repair</h3>
-        <p>Crack repair, joint sealing, demolition, and concrete replacement.</p>
-      </div>
+      <div class="service-box"><h3>Concrete Repair</h3><p>Joint caulking and crack repair for long-lasting concrete durability.</p></div>
 
-      <div class="service-box">
-        <h3>Site Work & Extras</h3>
-        <p>Utility protection, site prep, demolition, and waste removal.</p>
-      </div>
+      <div class="service-box"><h3>Sump Systems</h3><p>Complete sump pump systems, backups, discharge lines, and upgrades.</p></div>
+
+      <div class="service-box"><h3>Crawlspace Repair</h3><p>Encapsulation, drainage, insulation, and sealing systems for crawlspaces.</p></div>
+
+      <div class="service-box"><h3>Exterior Waterproofing</h3><p>Drain tile systems, membranes, and downspout extensions.</p></div>
+
+      <div class="service-box"><h3>Interior Work</h3><p>Drywall removal, insulation, wood framing, and renovations.</p></div>
+
+      <div class="service-box"><h3>Additional Services</h3><p>Mobilization, site work, service plans, plumbing, electrical, and finishing.</p></div>
 
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta">
-  <h2>Need Foundation or Waterproofing Help?</h2>
-  <p>Contact us today for a free consultation and professional advice.</p>
-</section>
-
 <!-- CONTACT -->
-<section id="contact" class="contact">
+<section id="contact" class="contact fade">
   <div class="container">
     <h2>Contact Us</h2>
 
@@ -218,17 +173,27 @@ footer {
     <form action="https://formsubmit.co/polarbearconstruction2026@gmail.com" method="POST">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
-      <input type="text" name="phone" placeholder="Phone Number">
       <textarea name="message" placeholder="Describe your project..." required></textarea>
       <button type="submit">Send Request</button>
     </form>
-
   </div>
 </section>
 
 <footer>
   <p>© 2026 Polar Bear Construction</p>
 </footer>
+
+<script>
+const faders = document.querySelectorAll('.fade');
+window.addEventListener('scroll', () => {
+  faders.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if(top < window.innerHeight - 100){
+      el.classList.add('show');
+    }
+  });
+});
+</script>
 
 </body>
 </html>
