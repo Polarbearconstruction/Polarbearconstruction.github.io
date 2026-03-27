@@ -3,195 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Polar Bear Construction | Premium Structural Solutions</title>
-
+    <title>Polar Bear Construction | Structural Specialists</title>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #c40000;
-            --dark: #0a0a0a;
-            --card: #1a1a1a;
-            --accent: #00d4ff;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background: var(--dark);
-            color: white;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* NAVIGATION */
-        nav {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 5%;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .logo-area { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 1.2rem; }
-        .logo-area img { height: 50px; border-radius: 4px; }
-        nav a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* HERO */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80') center/cover;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .hero h1 { font-size: clamp(2rem, 10vw, 5rem); margin: 0; color: white; text-transform: uppercase; }
-        .hero p { font-size: 1.2rem; color: #ccc; max-width: 700px; margin: 20px 0 40px; }
-
-        /* SERVICES SECTION */
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { font-size: 3rem; color: var(--primary); margin-bottom: 10px; }
+        :root { --red: #c40000; --dark: #0a0a0a; --card: #141414; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--dark); color: white; line-height: 1.5; }
+        nav { position: fixed; width: 100%; top: 0; display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); z-index: 1000; border-bottom: 1px solid #222; }
+        .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; text-transform: uppercase; }
+        .logo img { height: 40px; border-radius: 4px; }
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-size: 13px; font-weight: 600; }
         
-        .services-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            padding: 0 5%;
-        }
+        .hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1541976590-71394168159b?q=80&w=2000') center/cover; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .hero h1 { font-size: clamp(2rem, 8vw, 4.5rem); margin: 0; }
+        .hero p { color: #aaa; max-width: 700px; margin: 20px 0 30px; }
+        
+        section { padding: 80px 5%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        .card { background: var(--card); padding: 25px; border-radius: 8px; border: 1px solid #222; transition: 0.3s; }
+        .card:hover { border-color: var(--red); transform: translateY(-5px); }
+        .card h3 { color: var(--red); margin-top: 0; font-size: 1.2rem; text-transform: uppercase; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .card ul { list-style: none; padding: 0; margin: 15px 0 0; font-size: 0.85rem; color: #ccc; }
+        .card li { margin-bottom: 6px; padding-left: 15px; position: relative; }
+        .card li::before { content: '•'; position: absolute; left: 0; color: var(--red); }
 
-        .service-category {
-            background: var(--card);
-            padding: 30px;
-            border-radius: 12px;
-            border-top: 4px solid var(--primary);
-            transition: 0.3s;
-        }
-
-        .service-category:hover { transform: translateY(-10px); background: #222; }
-        .service-category h3 { color: var(--primary); border-bottom: 1px solid #333; padding-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-        .service-list { list-style: none; padding: 0; font-size: 0.9rem; color: #bbb; }
-        .service-list li { margin-bottom: 8px; position: relative; padding-left: 20px; }
-        .service-list li::before { content: "→"; position: absolute; left: 0; color: var(--primary); }
-
-        /* SWIPER GALLERY */
         .swiper { width: 100%; padding: 50px 0; }
-        .swiper-slide { width: 320px; height: 450px; border-radius: 15px; overflow: hidden; position: relative; }
+        .swiper-slide { width: 300px; height: 380px; border-radius: 12px; overflow: hidden; }
         .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* CONTACT & QUOTE */
-        .contact-section { background: #111; padding: 100px 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
-        .quote-form { background: var(--card); padding: 40px; border-radius: 15px; }
-        .quote-form input, .quote-form select, .quote-form textarea {
-            width: 100%; padding: 15px; margin-bottom: 15px; background: #000; border: 1px solid #333; color: white; border-radius: 5px;
-        }
-        .submit-btn { background: var(--primary); color: white; border: none; padding: 18px; width: 100%; font-weight: 800; cursor: pointer; transition: 0.3s; }
-        .submit-btn:hover { background: white; color: var(--primary); }
-
-        @media (max-width: 900px) { .contact-section { grid-template-columns: 1fr; } }
+        .contact-container { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; background: #111; padding: 40px; border-radius: 15px; }
+        input, select, textarea { width: 100%; padding: 12px; margin-bottom: 12px; background: #000; border: 1px solid #333; color: white; border-radius: 4px; }
+        .submit-btn { background: var(--red); color: white; border: none; padding: 15px; width: 100%; font-weight: 700; cursor: pointer; }
+        
+        @media (max-width: 800px) { .contact-container { grid-template-columns: 1fr; } nav div:last-child { display: none; } }
     </style>
 </head>
 <body>
 
 <nav>
-    <div class="logo-area">
-        <img src="logo.jpg" alt="Polar Bear Logo">
-        POLAR BEAR
-    </div>
-    <div>
-        <a href="#services">Services</a>
-        <a href="#gallery">Work</a>
-        <a href="#contact">Free Quote</a>
-    </div>
+    <div class="logo"><img src="logo.jpg"> Polar Bear Construction</div>
+    <div><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#contact">Quote</a></div>
 </nav>
 
 <section class="hero">
     <h1 id="typing"></h1>
-    <p data-aos="fade-up">Structural Integrity. Foundation Excellence. 20+ Years of Combined Expertise.</p>
-    <a href="#contact" class="submit-btn" style="width:auto; padding: 15px 40px;">REQUEST INSPECTION</a>
+    <p data-aos="fade-up">Structural Integrity & Foundation Repair. Certified Engineering. Built for the North.</p>
+    <a href="#contact" class="submit-btn" style="width: auto; padding: 15px 40px; text-decoration: none;">GET FREE INSPECTION</a>
 </section>
 
-<section id="services" style="padding: 100px 0;">
-    <div class="section-title" data-aos="fade-up">
-        <h2>Our Specializations</h2>
-        <p>Comprehensive Solutions for Foundations & Structural Stability</p>
-    </div>
-
-    <div class="services-container">
-        <div class="service-category" data-aos="fade-up">
+<section id="services">
+    <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 40px;">OUR FULL SERVICE SCOPE</h2>
+    <div class="grid">
+        <div class="card" data-aos="fade-up">
             <h3><i class="fas fa-arrow-down"></i> Settlement Repair</h3>
-            <ul class="service-list">
-                <li>Helical & Push Piers (All Sizes)</li>
+            <ul>
+                <li>Helical & Push Piers (Standard & Hand Held)</li>
+                <li>Crawlspace Piers (HP 36" / PP 48")</li>
                 <li>Slab Piers (Includes Poly Fill)</li>
-                <li>Custom Concrete Demo & Replacement</li>
-                <li>Engineering & Utilities Protection</li>
+                <li>Concrete Remove & Replace (3'x3' or Custom)</li>
+                <li>Engineering A (When Needed)</li>
+                <li>Utilities Protection Core Job</li>
             </ul>
         </div>
-
-        <div class="service-category" data-aos="fade-up" data-aos-delay="100">
-            <h3><i class="fas fa-border-all"></i> Wall Repair</h3>
-            <ul class="service-list">
-                <li>Carbon Fiber Strips & Stitching</li>
-                <li>Support Braces</li>
-                <li>Wall Excavation (Hand & Machine)</li>
-                <li>Joist Reinforcement</li>
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <h3><i class="fas fa-wall"></i> Wall Repair & Excavation</h3>
+            <ul>
+                <li>Carbon Fiber Strips & Stitching Kits</li>
+                <li>Support Braces & Joist Reinforcement</li>
+                <li>Hand Dig (0'-4') & Machine Access (Up to 9'+)</li>
+                <li>Drywall & Insulation Removal (Full/Half Wall)</li>
             </ul>
         </div>
-
-        <div class="service-category" data-aos="fade-up" data-aos-delay="200">
-            <h3><i class="fas fa-tint-slash"></i> Waterproofing</h3>
-            <ul class="service-list">
-                <li>BasementGutter Systems</li>
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+            <h3><i class="fas fa-droplet-slash"></i> Waterproofing</h3>
+            <ul>
+                <li>BasementGutter (Under/Over 75')</li>
                 <li>Sealing Wall + Wrap</li>
-                <li>Basement/Crawl Air Systems</li>
-                <li>Exterior Membrane & Drain Tile</li>
+                <li>Lateral & Feed Lines</li>
+                <li>Basement & Crawlspace Air Systems</li>
+                <li>Drain Tile & Exterior Membrane</li>
             </ul>
         </div>
-
-        <div class="service-category" data-aos="fade-up">
+        <div class="card" data-aos="fade-up">
             <h3><i class="fas fa-faucet"></i> Sump Systems</h3>
-            <ul class="service-list">
-                <li>SafeDri 330/500 Pump Systems</li>
-                <li>Battery Backup Systems</li>
-                <li>FreezeGuard & Yardwell Drainage</li>
+            <ul>
+                <li>SafeDri 330 & 500 Pump Systems</li>
+                <li>AS Basement/Crawl (Single & Triple)</li>
+                <li>Battery Backup & Replacement</li>
+                <li>FreezeGuard & Yardwell (Flat/Angled)</li>
+                <li>Buried & Interior PVC Discharge</li>
                 <li>Water Alarms & Basin Upgrades</li>
             </ul>
         </div>
-
-        <div class="service-category" data-aos="fade-up" data-aos-delay="100">
-            <h3><i class="fas fa-house-user"></i> Crawlspace & Misc</h3>
-            <ul class="service-list">
-                <li>Crawl Sealing + Membrane</li>
-                <li>Tiger IntelliJacks (1' to 8'+)</li>
-                <li>Thermal Protection & Rim Joist Insulation</li>
-                <li>Full Renovation (Drywall, Tile, Electrical)</li>
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <h3><i class="fas fa-house-chimney-window"></i> Crawlspace & Tiger Jacks</h3>
+            <ul>
+                <li>Tiger IntelliJacks (1' up to 8'+)</li>
+                <li>Poured Cast-in-Place Footings</li>
+                <li>Supplemental Beam S4</li>
+                <li>Crawl Sealing & Drainage Matting</li>
+                <li>Thermal Protection & ExtremeBloc</li>
             </ul>
         </div>
-
-        <div class="service-category" data-aos="fade-up" data-aos-delay="200" style="border-color: var(--accent);">
-            <h3><i class="fas fa-shield-alt"></i> Annual Protection</h3>
-            <ul class="service-list">
+        <div class="card" data-aos="fade-up" data-aos-delay="200">
+            <h3><i class="fas fa-hammer"></i> Renovations & Finish</h3>
+            <ul>
+                <li>Wood Framing & Drywalling</li>
+                <li>Plastering & Painting</li>
+                <li>Crown Molding & Baseboards</li>
+                <li>Floor & Wall Tile Installation</li>
+                <li>Plumbing & Electrical Service</li>
+            </ul>
+        </div>
+        <div class="card" data-aos="fade-up">
+            <h3><i class="fas fa-shield-heart"></i> Maintenance & Service</h3>
+            <ul>
                 <li>1, 3, & 5 Year Annual Service Plans</li>
-                <li>Post-Construction Renovation</li>
-                <li>Painting, Framing & Crown Molding</li>
-                <li>Plumbing & Electrical Services</li>
+                <li>Mobilization (Zones 1 & 2)</li>
+                <li>Depth Clause Coverage</li>
+                <li>Site Work / Obstruction Handling</li>
+            </ul>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="100">
+            <h3><i class="fas fa-list-check"></i> Project Minimums</h3>
+            <ul>
+                <li>Foundation & Wall Repair</li>
+                <li>Basement Waterproofing</li>
+                <li>Crawlspace Encap & Water</li>
+                <li>Sump Pump & Air Systems ONLY</li>
             </ul>
         </div>
     </div>
 </section>
 
 <section id="gallery" style="background: #000;">
-    <div class="section-title"><h2>Recent Work</h2></div>
+    <h2 style="text-align: center;">OUR WORK</h2>
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
             <div class="swiper-slide"><img src="IMG_2346.jpeg"></div>
@@ -199,53 +146,49 @@
             <div class="swiper-slide"><img src="IMG_2080.jpeg"></div>
             <div class="swiper-slide"><img src="IMG_2937.jpeg"></div>
             <div class="swiper-slide"><img src="IMG_4351.jpeg"></div>
-            <div class="swiper-slide"><img src="IMG_4460.jpeg"></div>
-            <div class="swiper-slide"><img src="IMG_4851.jpeg"></div>
-            <div class="swiper-slide"><img src="IMG_4854.jpeg"></div>
-            <div class="swiper-slide"><img src="IMG_4963.jpeg"></div>
+            <div class="swiper-slide"><img src="IMG_4561.jpeg"></div>
+            <div class="swiper-slide"><img src="IMG_4855.jpeg"></div>
         </div>
         <div class="swiper-pagination"></div>
     </div>
 </section>
 
-<section id="contact" class="contact-section">
-    <div data-aos="fade-right">
-        <h2 style="font-size: 3.5rem; color: var(--primary);">GET A QUOTE</h2>
-        <p>Contact our structural specialists for a free on-site inspection and quote.</p>
-        <div style="margin-top: 30px;">
-            <p><i class="fas fa-envelope"></i> polarbearconstruction2026@gmail.com</p>
+<section id="contact">
+    <div class="contact-container" data-aos="fade-up">
+        <div>
+            <h2 style="color: var(--red); font-size: 2.5rem;">SUBMIT A QUOTE</h2>
+            <p>Fill out the form and our team will contact you for a professional inspection.</p>
             <p><i class="fas fa-phone"></i> Volodymyr: 639-318-9674</p>
             <p><i class="fas fa-phone"></i> Anton: 438-866-1416</p>
+            <p><i class="fas fa-envelope"></i> polarbearconstruction2026@gmail.com</p>
         </div>
-    </div>
-
-    <div class="quote-form" data-aos="fade-left">
-        <form action="https://formspree.io/f/polarbearconstruction2026@gmail.com" method="POST">
-            <input type="text" name="name" placeholder="Name" required>
-            <input type="email" name="email" placeholder="Email" required>
+        <form action="YOUR_FORMSPREE_ID_HERE" method="POST">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="_replyto" placeholder="Email Address" required>
             <input type="text" name="phone" placeholder="Phone Number">
-            <select name="service_type">
-                <option value="settlement">Settlement Repair</option>
-                <option value="waterproofing">Waterproofing</option>
-                <option value="crawlspace">Crawlspace / Tiger Jacks</option>
-                <option value="other">Other / Renovation</option>
+            <select name="service_interest">
+                <option disabled selected>Select Primary Service</option>
+                <option>Settlement Repair</option>
+                <option>Wall Repair / Excavation</option>
+                <option>Waterproofing</option>
+                <option>Sump Systems</option>
+                <option>Crawlspace / Tiger Jacks</option>
+                <option>Post-Construction Renovation</option>
             </select>
-            <textarea name="message" rows="5" placeholder="Describe the issue (e.g., wall cracks, water in basement)"></textarea>
-            <button type="submit" class="submit-btn">SEND QUOTE REQUEST</button>
+            <textarea name="message" rows="4" placeholder="Briefly describe your project..."></textarea>
+            <button type="submit" class="submit-btn">SEND REQUEST</button>
         </form>
     </div>
 </section>
 
-<footer>
-    <p>© 2026 Polar Bear Construction | Premium Foundation Repair</p>
+<footer style="text-align: center; padding: 40px; color: #555; border-top: 1px solid #222;">
+    © 2026 Polar Bear Construction | Premium Structural Solutions
 </footer>
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
 <script>
     AOS.init({ duration: 800, once: true });
-
     const text = "POLAR BEAR CONSTRUCTION";
     let i = 0;
     function type() {
@@ -262,14 +205,8 @@
         grabCursor: true,
         centeredSlides: true,
         slidesPerView: "auto",
-        autoplay: { delay: 2000 },
-        coverflowEffect: {
-            rotate: 20,
-            stretch: 0,
-            depth: 200,
-            modifier: 1,
-            slideShadows: true,
-        },
+        autoplay: { delay: 3000 },
+        coverflowEffect: { rotate: 20, stretch: 0, depth: 200, modifier: 1, slideShadows: true },
         pagination: { el: ".swiper-pagination" },
     });
 </script>
