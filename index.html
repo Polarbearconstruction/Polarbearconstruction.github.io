@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        :root { --red: #c40000; --dark: #0a0a0a; --card: rgba(20, 20, 20, 0.95); }
+        :root { --red: #c40000; --green: #25d366; --dark: #0a0a0a; --card: rgba(20, 20, 20, 0.95); }
         body { margin: 0; font-family: 'Inter', sans-serif; background: var(--dark); color: white; line-height: 1.5; overflow-x: hidden; }
         
         /* NAVIGATION */
@@ -47,19 +47,23 @@
         /* CONTACT SECTION */
         .contact-container { display: grid; grid-template-columns: 1fr 1.2fr; gap: 50px; background: #111; padding: 50px; border-radius: 20px; border: 1px solid #222; }
         input, select, textarea { width: 100%; padding: 15px; margin-bottom: 15px; background: #000; border: 1px solid #333; color: white; border-radius: 6px; font-size: 16px; outline: none; }
-        input:focus, textarea:focus { border-color: var(--red); }
         .submit-btn { background: var(--red); color: white; border: none; padding: 20px; width: 100%; font-weight: 800; cursor: pointer; text-transform: uppercase; transition: 0.3s; border-radius: 6px; }
         .submit-btn:hover { background: white; color: var(--red); transform: scale(1.02); }
         
-        /* MULTI-CONTACT CALL BUTTON SYSTEM */
-        .call-now-trigger { position: fixed; bottom: 20px; right: 20px; background: var(--red); color: white; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 5px 20px rgba(196,0,0,0.4); z-index: 1001; border: 2px solid white; cursor: pointer; }
+        /* MULTI-CONTACT CALL & WHATSAPP BUTTONS */
+        .float-btns { position: fixed; bottom: 20px; right: 20px; display: flex; flex-direction: column; gap: 15px; z-index: 1001; }
+        .float-btn { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; color: white; box-shadow: 0 5px 15px rgba(0,0,0,0.4); border: 2px solid white; cursor: pointer; transition: 0.3s; }
+        .btn-call { background: var(--red); }
+        .btn-wa { background: var(--green); }
         
-        .call-menu { position: fixed; bottom: -300px; right: 20px; background: #1a1a1a; border: 1px solid #333; border-radius: 15px; padding: 20px; width: 250px; z-index: 1000; transition: 0.5s ease; box-shadow: 0 -10px 40px rgba(0,0,0,0.8); }
-        .call-menu.active { bottom: 100px; }
-        .call-option { display: flex; flex-direction: column; text-decoration: none; color: white; background: #222; padding: 15px; border-radius: 10px; margin-bottom: 10px; border-left: 4px solid var(--red); transition: 0.3s; }
-        .call-option:hover { background: #333; }
-        .call-name { font-weight: 800; text-transform: uppercase; font-size: 14px; color: var(--red); }
-        .call-number { font-size: 16px; margin-top: 5px; }
+        /* SHARED MENU STYLE */
+        .pop-menu { position: fixed; bottom: -400px; right: 20px; background: #1a1a1a; border: 1px solid #333; border-radius: 15px; padding: 20px; width: 260px; z-index: 1000; transition: 0.5s ease; box-shadow: 0 -10px 40px rgba(0,0,0,0.8); }
+        .pop-menu.active { bottom: 170px; }
+        .contact-opt { display: flex; flex-direction: column; text-decoration: none; color: white; background: #222; padding: 15px; border-radius: 10px; margin-bottom: 10px; border-left: 4px solid var(--red); transition: 0.3s; }
+        .wa-opt { border-left-color: var(--green); }
+        .contact-opt:hover { background: #333; }
+        .opt-name { font-weight: 800; text-transform: uppercase; font-size: 13px; margin-bottom: 4px; }
+        .opt-sub { font-size: 15px; opacity: 0.8; }
 
         footer { text-align: center; padding: 60px 20px; color: #555; font-size: 0.9rem; border-top: 1px solid #222; }
         
@@ -76,16 +80,32 @@
     <div><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a></div>
 </nav>
 
-<div class="call-now-trigger" onclick="toggleCallMenu()"><i class="fas fa-phone"></i></div>
-<div class="call-menu" id="callMenu">
-    <div style="margin-bottom: 15px; font-weight: 700; font-size: 12px; color: #777; text-align: center; text-transform: uppercase;">Select Contact</div>
-    <a href="tel:6393189674" class="call-option">
-        <span class="call-name">Volodymyr</span>
-        <span class="call-number">639-318-9674</span>
+<div class="float-btns">
+    <div class="float-btn btn-wa" onclick="toggleMenu('waMenu')"><i class="fab fa-whatsapp"></i></div>
+    <div class="float-btn btn-call" onclick="toggleMenu('callMenu')"><i class="fas fa-phone"></i></div>
+</div>
+
+<div class="pop-menu" id="callMenu">
+    <div style="margin-bottom: 10px; font-size: 11px; color: #777; text-align: center; text-transform: uppercase;">Call a Specialist</div>
+    <a href="tel:6393189674" class="contact-opt">
+        <span class="opt-name" style="color:var(--red)">Volodymyr</span>
+        <span class="opt-sub">639-318-9674</span>
     </a>
-    <a href="tel:4388661416" class="call-option">
-        <span class="call-name">Anton</span>
-        <span class="call-number">438-866-1416</span>
+    <a href="tel:4388661416" class="contact-opt">
+        <span class="opt-name" style="color:var(--red)">Anton</span>
+        <span class="opt-sub">438-866-1416</span>
+    </a>
+</div>
+
+<div class="pop-menu" id="waMenu">
+    <div style="margin-bottom: 10px; font-size: 11px; color: #777; text-align: center; text-transform: uppercase;">Chat on WhatsApp</div>
+    <a href="https://wa.me/16393189674" target="_blank" class="contact-opt wa-opt">
+        <span class="opt-name" style="color:var(--green)">Volodymyr</span>
+        <span class="opt-sub">Message Now</span>
+    </a>
+    <a href="https://wa.me/14388661416" target="_blank" class="contact-opt wa-opt">
+        <span class="opt-name" style="color:var(--green)">Anton</span>
+        <span class="opt-sub">Message Now</span>
     </a>
 </div>
 
@@ -230,9 +250,7 @@
     </div>
 </section>
 
-<footer>
-    © 2026 Polar Bear Construction | Structural Specialists
-</footer>
+<footer>© 2026 Polar Bear Construction</footer>
 
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -250,9 +268,12 @@
     }
     window.onload = type;
 
-    // CALL MENU TOGGLE
-    function toggleCallMenu() {
-        document.getElementById('callMenu').classList.toggle('active');
+    // TOGGLE MENUS (And close other if open)
+    function toggleMenu(menuId) {
+        const target = document.getElementById(menuId);
+        const otherId = menuId === 'callMenu' ? 'waMenu' : 'callMenu';
+        document.getElementById(otherId).classList.remove('active');
+        target.classList.toggle('active');
     }
 
     new Swiper(".mySwiper", {
